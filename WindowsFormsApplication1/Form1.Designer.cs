@@ -45,6 +45,8 @@
             this.zero = new System.Windows.Forms.Button();
             this.display = new System.Windows.Forms.TextBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.savedNumber = new System.Windows.Forms.TextBox();
+            this.operation = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // subtract
@@ -209,11 +211,33 @@
             // 
             this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
             // 
+            // savedNumber
+            // 
+            this.savedNumber.BackColor = System.Drawing.SystemColors.Control;
+            this.savedNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.savedNumber.Location = new System.Drawing.Point(50, 11);
+            this.savedNumber.Name = "savedNumber";
+            this.savedNumber.Size = new System.Drawing.Size(124, 13);
+            this.savedNumber.TabIndex = 16;
+            this.savedNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // operation
+            // 
+            this.operation.BackColor = System.Drawing.SystemColors.Control;
+            this.operation.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.operation.Location = new System.Drawing.Point(170, 11);
+            this.operation.Name = "operation";
+            this.operation.Size = new System.Drawing.Size(26, 13);
+            this.operation.TabIndex = 17;
+            this.operation.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(209, 280);
+            this.Controls.Add(this.savedNumber);
+            this.Controls.Add(this.operation);
             this.Controls.Add(this.display);
             this.Controls.Add(this.zero);
             this.Controls.Add(this.two);
@@ -258,6 +282,8 @@
         private System.Windows.Forms.Button zero;
         private System.Windows.Forms.TextBox display;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.TextBox savedNumber;
+        private System.Windows.Forms.TextBox operation;
     }
 }
 

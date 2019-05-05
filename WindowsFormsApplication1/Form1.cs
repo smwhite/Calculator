@@ -79,26 +79,194 @@ namespace WindowsFormsApplication1
 
         private void add_Click(object sender, EventArgs e)
         {
+            if(savedNumber.Text == string.Empty)
+            {
+                savedNumber.Text = display.Text;
+                display.Clear();
+                operation.Text = "+";
+            }
+            else
+            {
+                int x = Int32.Parse(savedNumber.Text);
+                int y = Int32.Parse(display.Text);
+                int z = 0;
+                switch (operation.Text)
+                {
+                    case "+":
+                        z = x + y;
+                        break;
+         
+                    case "-":
+                        z = x - y;
+                        break;
+
+                    case "/":
+                        z = x / y;
+                        break;
+
+                    case "X":
+                        z = x * y;
+                        break;
+
+
+                }
+               
+                savedNumber.Text = z.ToString();
+                display.Clear();
+                operation.Text = "+";
+
+            }
 
         }
 
         private void subtract_Click(object sender, EventArgs e)
         {
+            if (savedNumber.Text == string.Empty)
+            {
+                savedNumber.Text = display.Text;
+                display.Clear();
+                operation.Text = "-";
+            }
+            else
+            {
+                int x = Int32.Parse(savedNumber.Text);
+                int y = Int32.Parse(display.Text);
+                int z = 0;
+                switch (operation.Text)
+                {
+                    case "+":
+                        z = x + y;
+                        break;
 
+                    case "-":
+                        z = x - y;
+                        break;
+
+                    case "/":
+                        z = x / y;
+                        break;
+
+                    case "X":
+                        z = x * y;
+                        break;
+
+
+                }
+
+                savedNumber.Text = z.ToString();
+                display.Clear();
+                operation.Text = "-";
+            }
         }
 
         private void divide_Click(object sender, EventArgs e)
         {
+            if (savedNumber.Text == string.Empty)
+            {
+                savedNumber.Text = display.Text;
+                display.Clear();
+                operation.Text = "/";
+            }
+            else
+            {
+                int x = Int32.Parse(savedNumber.Text);
+                int y = Int32.Parse(display.Text);
+                int z = 0;
+                switch (operation.Text)
+                {
+                    case "+":
+                        z = x + y;
+                        break;
 
+                    case "-":
+                        z = x - y;
+                        break;
+
+                    case "/":
+                        z = x / y;
+                        break;
+
+                    case "X":
+                        z = x * y;
+                        break;
+
+
+                }
+
+                savedNumber.Text = z.ToString();
+                display.Clear();
+                operation.Text = "/";
+            }
         }
 
         private void multiply_Click(object sender, EventArgs e)
         {
+            if (savedNumber.Text == string.Empty)
+            {
+                savedNumber.Text = display.Text;
+                display.Clear();
+                operation.Text = "X";
+            }
+            else
+            {
+                int x = Int32.Parse(savedNumber.Text);
+                int y = Int32.Parse(display.Text);
+                int z = 0;
+                switch (operation.Text)
+                {
+                    case "+":
+                        z = x + y;
+                        break;
 
+                    case "-":
+                        z = x - y;
+                        break;
+
+                    case "/":
+                        z = x / y;
+                        break;
+
+                    case "X":
+                        z = x * y;
+                        break;
+
+
+                }
+
+                savedNumber.Text = z.ToString();
+                display.Clear();
+                operation.Text = "X";
+            }
         }
 
         private void equal_Click(object sender, EventArgs e)
         {
+            int x = Int32.Parse(savedNumber.Text);
+            int y = Int32.Parse(display.Text);
+            int z = 0;
+            switch (operation.Text)
+            {
+                case "+":
+                    z = x + y;
+                    break;
+
+                case "-":
+                    z = x - y;
+                    break;
+
+                case "/":
+                    z = x / y;
+                    break;
+
+                case "X":
+                    z = x * y;
+                    break;
+
+
+            }
+            display.Text = z.ToString();
+            operation.Text = "=";
+            savedNumber.Clear();
 
         }
     }
