@@ -47,6 +47,7 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.savedNumber = new System.Windows.Forms.TextBox();
             this.operation = new System.Windows.Forms.TextBox();
+            this.clear = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // subtract
@@ -231,11 +232,22 @@
             this.operation.TabIndex = 17;
             this.operation.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // clear
+            // 
+            this.clear.Location = new System.Drawing.Point(86, 222);
+            this.clear.Name = "clear";
+            this.clear.Size = new System.Drawing.Size(30, 23);
+            this.clear.TabIndex = 18;
+            this.clear.Text = "C";
+            this.clear.UseVisualStyleBackColor = true;
+            this.clear.Click += new System.EventHandler(this.clear_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(209, 280);
+            this.Controls.Add(this.clear);
             this.Controls.Add(this.savedNumber);
             this.Controls.Add(this.operation);
             this.Controls.Add(this.display);
@@ -284,6 +296,7 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.TextBox savedNumber;
         private System.Windows.Forms.TextBox operation;
+        private System.Windows.Forms.Button clear;
     }
 }
 

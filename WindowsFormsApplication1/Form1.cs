@@ -74,7 +74,17 @@ namespace WindowsFormsApplication1
 
         private void zero_Click(object sender, EventArgs e)
         {
-            display.Text = display.Text + "0";
+            if (display.Text != string.Empty)
+            {
+                if((Int32.Parse(display.Text)) != 0)
+                {
+                   display.Text = display.Text + "0";
+                }
+            }
+            else
+            {
+                display.Text = display.Text + "0";
+            }
         }
 
         private void add_Click(object sender, EventArgs e)
@@ -101,7 +111,10 @@ namespace WindowsFormsApplication1
                         break;
 
                     case "/":
-                        z = x / y;
+                        if (y != 0)
+                        {
+                            z = x / y;
+                        }
                         break;
 
                     case "X":
@@ -143,7 +156,10 @@ namespace WindowsFormsApplication1
                         break;
 
                     case "/":
-                        z = x / y;
+                        if (y != 0)
+                        {
+                            z = x / y;
+                        }
                         break;
 
                     case "X":
@@ -183,7 +199,10 @@ namespace WindowsFormsApplication1
                         break;
 
                     case "/":
-                        z = x / y;
+                        if (y != 0)
+                        {
+                            z = x / y;
+                        }
                         break;
 
                     case "X":
@@ -223,7 +242,10 @@ namespace WindowsFormsApplication1
                         break;
 
                     case "/":
-                        z = x / y;
+                        if (y != 0)
+                        {
+                            z = x / y;
+                        }
                         break;
 
                     case "X":
@@ -241,33 +263,45 @@ namespace WindowsFormsApplication1
 
         private void equal_Click(object sender, EventArgs e)
         {
-            int x = Int32.Parse(savedNumber.Text);
-            int y = Int32.Parse(display.Text);
-            int z = 0;
-            switch (operation.Text)
+            if (savedNumber.Text != string.Empty && display.Text != string.Empty )
             {
-                case "+":
-                    z = x + y;
-                    break;
+                int x = Int32.Parse(savedNumber.Text);
+                int y = Int32.Parse(display.Text);
+                int z = 0;
+                switch (operation.Text)
+                {
+                    case "+":
+                        z = x + y;
+                        break;
 
-                case "-":
-                    z = x - y;
-                    break;
+                    case "-":
+                        z = x - y;
+                        break;
 
-                case "/":
-                    z = x / y;
-                    break;
+                    case "/":
+                        if (y != 0)
+                        {
+                            z = x / y;
+                        }
+                        break;
 
-                case "X":
-                    z = x * y;
-                    break;
+                    case "X":
+                        z = x * y;
+                        break;
 
-
+                }
+                display.Text = z.ToString();
+                operation.Text = "=";
+                savedNumber.Clear();
             }
-            display.Text = z.ToString();
-            operation.Text = "=";
-            savedNumber.Clear();
 
+        }
+
+        private void clear_Click(object sender, EventArgs e)
+        {
+            display.Clear();
+            operation.Clear();
+            savedNumber.Clear();
         }
     }
 }
