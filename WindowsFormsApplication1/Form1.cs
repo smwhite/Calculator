@@ -89,176 +89,23 @@ namespace WindowsFormsApplication1
 
         private void add_Click(object sender, EventArgs e)
         {
-            if(savedNumber.Text == string.Empty)
-            {
-                savedNumber.Text = display.Text;
-                display.Clear();
-                operation.Text = "+";
-            }
-            else
-            {
-                int x = Int32.Parse(savedNumber.Text);
-                int y = Int32.Parse(display.Text);
-                int z = 0;
-                switch (operation.Text)
-                {
-                    case "+":
-                        z = x + y;
-                        break;
-         
-                    case "-":
-                        z = x - y;
-                        break;
-
-                    case "/":
-                        if (y != 0)
-                        {
-                            z = x / y;
-                        }
-                        break;
-
-                    case "X":
-                        z = x * y;
-                        break;
-
-
-                }
-               
-                savedNumber.Text = z.ToString();
-                display.Clear();
-                operation.Text = "+";
-
-            }
+            preformOp("+");
 
         }
 
         private void subtract_Click(object sender, EventArgs e)
         {
-            if (savedNumber.Text == string.Empty)
-            {
-                savedNumber.Text = display.Text;
-                display.Clear();
-                operation.Text = "-";
-            }
-            else
-            {
-                int x = Int32.Parse(savedNumber.Text);
-                int y = Int32.Parse(display.Text);
-                int z = 0;
-                switch (operation.Text)
-                {
-                    case "+":
-                        z = x + y;
-                        break;
-
-                    case "-":
-                        z = x - y;
-                        break;
-
-                    case "/":
-                        if (y != 0)
-                        {
-                            z = x / y;
-                        }
-                        break;
-
-                    case "X":
-                        z = x * y;
-                        break;
-
-
-                }
-
-                savedNumber.Text = z.ToString();
-                display.Clear();
-                operation.Text = "-";
-            }
+            preformOp("-");
         }
 
         private void divide_Click(object sender, EventArgs e)
         {
-            if (savedNumber.Text == string.Empty)
-            {
-                savedNumber.Text = display.Text;
-                display.Clear();
-                operation.Text = "/";
-            }
-            else
-            {
-                int x = Int32.Parse(savedNumber.Text);
-                int y = Int32.Parse(display.Text);
-                int z = 0;
-                switch (operation.Text)
-                {
-                    case "+":
-                        z = x + y;
-                        break;
-
-                    case "-":
-                        z = x - y;
-                        break;
-
-                    case "/":
-                        if (y != 0)
-                        {
-                            z = x / y;
-                        }
-                        break;
-
-                    case "X":
-                        z = x * y;
-                        break;
-
-
-                }
-
-                savedNumber.Text = z.ToString();
-                display.Clear();
-                operation.Text = "/";
-            }
+            preformOp("/");
         }
 
         private void multiply_Click(object sender, EventArgs e)
         {
-            if (savedNumber.Text == string.Empty)
-            {
-                savedNumber.Text = display.Text;
-                display.Clear();
-                operation.Text = "X";
-            }
-            else
-            {
-                int x = Int32.Parse(savedNumber.Text);
-                int y = Int32.Parse(display.Text);
-                int z = 0;
-                switch (operation.Text)
-                {
-                    case "+":
-                        z = x + y;
-                        break;
-
-                    case "-":
-                        z = x - y;
-                        break;
-
-                    case "/":
-                        if (y != 0)
-                        {
-                            z = x / y;
-                        }
-                        break;
-
-                    case "X":
-                        z = x * y;
-                        break;
-
-
-                }
-
-                savedNumber.Text = z.ToString();
-                display.Clear();
-                operation.Text = "X";
-            }
+            preformOp("*");
         }
 
         private void equal_Click(object sender, EventArgs e)
@@ -302,6 +149,53 @@ namespace WindowsFormsApplication1
             display.Clear();
             operation.Clear();
             savedNumber.Clear();
+        }
+
+        private void preformOp(string op)
+        {
+            if (savedNumber.Text == string.Empty)
+            {
+                savedNumber.Text = display.Text;
+                display.Clear();
+                operation.Text = op;
+            }
+            if (savedNumber.Text != string.Empty && display.Text == string.Empty)
+            {
+                operation.Text = op;
+            }
+            else
+            {
+                int x = Int32.Parse(savedNumber.Text);
+                int y = Int32.Parse(display.Text);
+                int z = 0;
+                switch (operation.Text)
+                {
+                    case "+":
+                        z = x + y;
+                        break;
+
+                    case "-":
+                        z = x - y;
+                        break;
+
+                    case "/":
+                        if (y != 0)
+                        {
+                            z = x / y;
+                        }
+                        break;
+
+                    case "X":
+                        z = x * y;
+                        break;
+
+
+                }
+
+                savedNumber.Text = z.ToString();
+                display.Clear();
+                operation.Text = op;
+            }
         }
     }
 }
