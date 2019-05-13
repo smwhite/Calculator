@@ -48,6 +48,8 @@
             this.savedNumber = new System.Windows.Forms.TextBox();
             this.operation = new System.Windows.Forms.TextBox();
             this.clear = new System.Windows.Forms.Button();
+            this.negative = new System.Windows.Forms.Button();
+            this.point = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // subtract
@@ -102,7 +104,7 @@
             // 
             // nine
             // 
-            this.nine.Location = new System.Drawing.Point(86, 135);
+            this.nine.Location = new System.Drawing.Point(86, 164);
             this.nine.Name = "nine";
             this.nine.Size = new System.Drawing.Size(30, 23);
             this.nine.TabIndex = 5;
@@ -112,7 +114,7 @@
             // 
             // six
             // 
-            this.six.Location = new System.Drawing.Point(86, 164);
+            this.six.Location = new System.Drawing.Point(86, 193);
             this.six.Name = "six";
             this.six.Size = new System.Drawing.Size(30, 23);
             this.six.TabIndex = 6;
@@ -122,7 +124,7 @@
             // 
             // three
             // 
-            this.three.Location = new System.Drawing.Point(86, 193);
+            this.three.Location = new System.Drawing.Point(86, 222);
             this.three.Name = "three";
             this.three.Size = new System.Drawing.Size(30, 23);
             this.three.TabIndex = 7;
@@ -132,7 +134,7 @@
             // 
             // one
             // 
-            this.one.Location = new System.Drawing.Point(14, 193);
+            this.one.Location = new System.Drawing.Point(14, 222);
             this.one.Name = "one";
             this.one.Size = new System.Drawing.Size(30, 23);
             this.one.TabIndex = 10;
@@ -142,7 +144,7 @@
             // 
             // four
             // 
-            this.four.Location = new System.Drawing.Point(14, 164);
+            this.four.Location = new System.Drawing.Point(14, 193);
             this.four.Name = "four";
             this.four.Size = new System.Drawing.Size(30, 23);
             this.four.TabIndex = 9;
@@ -152,7 +154,7 @@
             // 
             // seven
             // 
-            this.seven.Location = new System.Drawing.Point(14, 135);
+            this.seven.Location = new System.Drawing.Point(14, 164);
             this.seven.Name = "seven";
             this.seven.Size = new System.Drawing.Size(30, 23);
             this.seven.TabIndex = 8;
@@ -162,7 +164,7 @@
             // 
             // two
             // 
-            this.two.Location = new System.Drawing.Point(50, 193);
+            this.two.Location = new System.Drawing.Point(50, 222);
             this.two.Name = "two";
             this.two.Size = new System.Drawing.Size(30, 23);
             this.two.TabIndex = 13;
@@ -172,7 +174,7 @@
             // 
             // five
             // 
-            this.five.Location = new System.Drawing.Point(50, 164);
+            this.five.Location = new System.Drawing.Point(50, 193);
             this.five.Name = "five";
             this.five.Size = new System.Drawing.Size(30, 23);
             this.five.TabIndex = 12;
@@ -182,7 +184,7 @@
             // 
             // eight
             // 
-            this.eight.Location = new System.Drawing.Point(50, 135);
+            this.eight.Location = new System.Drawing.Point(50, 164);
             this.eight.Name = "eight";
             this.eight.Size = new System.Drawing.Size(30, 23);
             this.eight.TabIndex = 11;
@@ -192,7 +194,7 @@
             // 
             // zero
             // 
-            this.zero.Location = new System.Drawing.Point(50, 222);
+            this.zero.Location = new System.Drawing.Point(50, 251);
             this.zero.Name = "zero";
             this.zero.Size = new System.Drawing.Size(30, 23);
             this.zero.TabIndex = 14;
@@ -203,6 +205,7 @@
             // display
             // 
             this.display.Location = new System.Drawing.Point(50, 37);
+            this.display.MaxLength = 327670;
             this.display.Name = "display";
             this.display.Size = new System.Drawing.Size(146, 20);
             this.display.TabIndex = 15;
@@ -234,7 +237,7 @@
             // 
             // clear
             // 
-            this.clear.Location = new System.Drawing.Point(86, 222);
+            this.clear.Location = new System.Drawing.Point(86, 135);
             this.clear.Name = "clear";
             this.clear.Size = new System.Drawing.Size(30, 23);
             this.clear.TabIndex = 18;
@@ -242,11 +245,33 @@
             this.clear.UseVisualStyleBackColor = true;
             this.clear.Click += new System.EventHandler(this.clear_Click);
             // 
+            // negative
+            // 
+            this.negative.Location = new System.Drawing.Point(50, 135);
+            this.negative.Name = "negative";
+            this.negative.Size = new System.Drawing.Size(30, 23);
+            this.negative.TabIndex = 19;
+            this.negative.Text = "- x";
+            this.negative.UseVisualStyleBackColor = true;
+            this.negative.Click += new System.EventHandler(this.negative_Click);
+            // 
+            // point
+            // 
+            this.point.Location = new System.Drawing.Point(86, 251);
+            this.point.Name = "point";
+            this.point.Size = new System.Drawing.Size(30, 23);
+            this.point.TabIndex = 20;
+            this.point.Text = ".";
+            this.point.UseVisualStyleBackColor = true;
+            this.point.Click += new System.EventHandler(this.point_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(209, 280);
+            this.Controls.Add(this.point);
+            this.Controls.Add(this.negative);
             this.Controls.Add(this.clear);
             this.Controls.Add(this.savedNumber);
             this.Controls.Add(this.operation);
@@ -297,6 +322,8 @@
         private System.Windows.Forms.TextBox savedNumber;
         private System.Windows.Forms.TextBox operation;
         private System.Windows.Forms.Button clear;
+        private System.Windows.Forms.Button negative;
+        private System.Windows.Forms.Button point;
     }
 }
 

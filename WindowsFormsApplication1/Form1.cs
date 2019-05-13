@@ -12,9 +12,12 @@ namespace WindowsFormsApplication1
 {
     public partial class Form1 : Form
     {
+        bool noDecimal = true;
+
         public Form1()
         {
             InitializeComponent();
+
         }
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
@@ -76,7 +79,7 @@ namespace WindowsFormsApplication1
         {
             if (display.Text != string.Empty)
             {
-                if((Int32.Parse(display.Text)) != 0)
+                if((float.Parse(display.Text)) != 0)
                 {
                    display.Text = display.Text + "0";
                 }
@@ -112,9 +115,9 @@ namespace WindowsFormsApplication1
         {
             if (savedNumber.Text != string.Empty && display.Text != string.Empty )
             {
-                int x = Int32.Parse(savedNumber.Text);
-                int y = Int32.Parse(display.Text);
-                int z = 0;
+                float x = float.Parse(savedNumber.Text);
+                float y = float.Parse(display.Text);
+                float z = 0;
                 switch (operation.Text)
                 {
                     case "+":
@@ -137,9 +140,10 @@ namespace WindowsFormsApplication1
                         break;
 
                 }
-                display.Text = z.ToString();
+                savedNumber.Text = z.ToString();
                 operation.Text = "=";
-                savedNumber.Clear();
+                display.Clear();
+                noDecimal = true;
             }
 
         }
@@ -149,6 +153,7 @@ namespace WindowsFormsApplication1
             display.Clear();
             operation.Clear();
             savedNumber.Clear();
+            noDecimal = true;
         }
 
         private void preformOp(string op)
@@ -163,11 +168,11 @@ namespace WindowsFormsApplication1
             {
                 operation.Text = op;
             }
-            else
+            if (savedNumber.Text != string.Empty && display.Text != string.Empty)
             {
-                int x = Int32.Parse(savedNumber.Text);
-                int y = Int32.Parse(display.Text);
-                int z = 0;
+                float x = float.Parse(savedNumber.Text);
+                float y = float.Parse(display.Text);
+                float z = 0;
                 switch (operation.Text)
                 {
                     case "+":
@@ -195,7 +200,22 @@ namespace WindowsFormsApplication1
                 savedNumber.Text = z.ToString();
                 display.Clear();
                 operation.Text = op;
+                noDecimal = true;
             }
+        }
+
+        private void point_Click(object sender, EventArgs e)
+        {
+            if(noDecimal)
+            {
+                display.Text = display.Text + ".";
+                noDecimal = false;
+            }
+        }
+
+        private void negative_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
