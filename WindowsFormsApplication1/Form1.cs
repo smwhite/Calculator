@@ -77,7 +77,7 @@ namespace WindowsFormsApplication1
 
         private void zero_Click(object sender, EventArgs e)
         {
-            if (display.Text != string.Empty)
+            if (display.Text != string.Empty && noDecimal)
             {
                 if((float.Parse(display.Text)) != 0)
                 {
@@ -122,28 +122,32 @@ namespace WindowsFormsApplication1
                 {
                     case "+":
                         z = x + y;
+                        savedNumber.Text = z.ToString();
                         break;
 
                     case "-":
                         z = x - y;
+                        savedNumber.Text = z.ToString();
                         break;
 
                     case "/":
                         if (y != 0)
                         {
                             z = x / y;
+                            savedNumber.Text = z.ToString();
                         }
                         break;
 
-                    case "X":
+                    case "*":
                         z = x * y;
+                        savedNumber.Text = z.ToString();
                         break;
 
+
                 }
-                savedNumber.Text = z.ToString();
-                operation.Text = "=";
                 display.Clear();
                 noDecimal = true;
+                operation.Text = "=";
             }
 
         }
@@ -158,11 +162,12 @@ namespace WindowsFormsApplication1
 
         private void preformOp(string op)
         {
-            if (savedNumber.Text == string.Empty)
+            if (savedNumber.Text == string.Empty || (savedNumber.Text != string.Empty && operation.Text == "="))
             {
                 savedNumber.Text = display.Text;
                 display.Clear();
                 operation.Text = op;
+                noDecimal = true;
             }
             if (savedNumber.Text != string.Empty && display.Text == string.Empty)
             {
@@ -177,27 +182,29 @@ namespace WindowsFormsApplication1
                 {
                     case "+":
                         z = x + y;
+                        savedNumber.Text = z.ToString();
                         break;
 
                     case "-":
                         z = x - y;
+                        savedNumber.Text = z.ToString();
                         break;
 
                     case "/":
                         if (y != 0)
                         {
                             z = x / y;
+                            savedNumber.Text = z.ToString();
                         }
                         break;
 
-                    case "X":
+                    case "*":
                         z = x * y;
+                        savedNumber.Text = z.ToString();
                         break;
-
 
                 }
 
-                savedNumber.Text = z.ToString();
                 display.Clear();
                 operation.Text = op;
                 noDecimal = true;
@@ -208,6 +215,10 @@ namespace WindowsFormsApplication1
         {
             if(noDecimal)
             {
+                if( display.Text == string.Empty)
+                {
+                    display.Text = display.Text + "0";
+                }
                 display.Text = display.Text + ".";
                 noDecimal = false;
             }
@@ -215,7 +226,14 @@ namespace WindowsFormsApplication1
 
         private void negative_Click(object sender, EventArgs e)
         {
-
+            if(display.Text == string.Empty)
+            {
+                display.Text = display.Text + "-";
+            }
+            if (display.Text[0] != '-')
+            {
+                display.Text = "-" + display.Text;
+            }
         }
     }
 }
